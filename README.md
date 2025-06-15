@@ -1,139 +1,143 @@
-# 🚀 Latihan Membangun Landing Page - Dicoding
+# 🚀 Landing Page Dicoding
 
-Proyek ini bertujuan untuk memahami dan menerapkan teknik dasar dalam membangun **landing page** menggunakan **HTML**, **CSS**, dan berbagai sumber daya tambahan.
+Proyek ini bertujuan untuk membangun **landing page** interaktif menggunakan **HTML** dan **CSS**, serta mengimplementasikan berbagai teknik dasar web development.
 
 ## 📌 Alur Pengerjaan
-Berikut langkah-langkah utama dalam membangun landing page:
 
 ### 1️⃣ Membuat dan Membuka Proyek Baru
-- Buat folder proyek untuk menyimpan semua file yang dibutuhkan.
-- Buka folder menggunakan **Visual Studio Code** atau editor pilihan Anda.
+- Buat folder proyek dan buka menggunakan **Visual Studio Code** atau editor pilihan.
+- Struktur awal proyek:
+  ```
+  Landing-Page-Dicoding/
+  │── index.html
+  │── css/
+  │   ├── app.css
+  │── img/
+  │   ├── dicoding-header-logo.png
+  │   ├── circle-g.jpg
+  ```
 
 ### 2️⃣ Membuat Struktur Proyek dan Aset-aset yang Dibutuhkan
-- Siapkan folder `assets/` untuk menyimpan gambar, ikon, dan file lainnya.
-- Buat file utama:  
-  ```sh
-  index.html
-  style.css
-  ```
-- Pastikan semua file proyek berada dalam struktur yang tertata.
+- Siapkan folder `css/` untuk menyimpan file **style**.
+- Siapkan folder `img/` untuk gambar dan ikon.
 
 ### 3️⃣ Membuat Struktur Navigation Bar
-- Gunakan elemen `<nav>` untuk membangun bar navigasi:
-  ```html
-  <nav>
+Gunakan elemen `<header>` dan `<nav>` untuk membangun bar navigasi:
+```html
+<header class="navbar-container">
+  <div class="logo">
+    <img src="img/dicoding-header-logo.png" alt="Dicoding Indonesia" />
+  </div>
+  <nav class="nav-list">
     <ul>
       <li><a href="#">Beranda</a></li>
-      <li><a href="#">Tentang</a></li>
+      <li><a href="#">Menu</a></li>
+      <li><a href="#">Apa Yang Baru</a></li>
       <li><a href="#">Kontak</a></li>
     </ul>
   </nav>
-  ```
-- Gunakan **CSS Flexbox** untuk menata navigasi agar responsif.
+</header>
+```
 
 ### 4️⃣ Memasang Font Quicksand dari Google Fonts
 Tambahkan link berikut di bagian `<head>` pada `index.html`:
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 ```
 Lalu terapkan di `style.css`:
 ```css
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 ```
 
 ### 5️⃣ Menerapkan Styling Dasar Proyek dan Bar Navigasi
-- Tambahkan aturan dasar dalam `style.css`:
-  ```css
-  body {
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-  }
+Tambahkan aturan dasar dalam `style.css` untuk menyusun navigasi agar lebih rapi:
+```css
+header.navbar-container {
+  width: 100%;
+  max-width: 1200px;
+  padding-block: 1rem;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
-  nav {
-    display: flex;
-    justify-content: space-between;
-    background-color: #333;
-    padding: 10px;
-  }
-
-  nav ul {
-    list-style: none;
-    display: flex;
-  }
-
-  nav ul li {
-    margin: 0 15px;
-  }
-
-  nav ul li a {
-    text-decoration: none;
-    color: white;
-  }
-  ```
-- Gunakan **Flexbox** agar tata letak navigasi lebih rapi.
+header.navbar-container .nav-list ul {
+  display: flex;
+  gap: 2rem;
+}
+```
 
 ### 6️⃣ Menambahkan Struktur Konten Utama pada Dokumen HTML
-- Gunakan elemen `<section>` dan `<article>` untuk menampilkan konten:
-  ```html
-  <section class="hero">
-    <h1>Selamat Datang di Landing Page!</h1>
-    <p>Bangun halaman web yang menarik dan responsif.</p>
-  </section>
-  ```
-- Pastikan menggunakan **div atau section** untuk pemisahan konten utama.
-
-### 7️⃣ Menampilkan Ikon Sosial Media dengan Font Awesome melalui CDN
-Tambahkan **CDN** Font Awesome di `<head>`:
+Tambahkan konten utama dengan judul dan deskripsi:
 ```html
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<main>
+  <div class="content">
+    <div class="content-description">
+      <h1 class="title">Dicoding Indonesia</h1>
+      <p>
+        Kami yakin pendidikan teknologi adalah fondasi bagi setiap bangsa agar menjadi yang terdepan dalam dunia digital.
+      </p>
+      <button>Lebih Lanjut</button>
+    </div>
+    <div class="content-image">
+      <img src="img/circle-g.jpg" alt="Dicoding Indonesia" />
+    </div>
+  </div>
+</main>
 ```
-Gunakan ikon sosial media dalam HTML:
+
+### 7️⃣ Menampilkan Ikon Sosial Media dengan Font Awesome CDN
+Gunakan ikon sosial media dalam **Font Awesome**:
 ```html
-<div class="social-icons">
-  <a href="#"><i class="fab fa-facebook"></i></a>
-  <a href="#"><i class="fab fa-twitter"></i></a>
-  <a href="#"><i class="fab fa-instagram"></i></a>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+```
+```html
+<div class="social-media">
+  <ul>
+    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+  </ul>
 </div>
 ```
 
 ### 8️⃣ Melakukan Styling pada Konten Utama Halaman
-Tambahkan CSS agar konten utama tampak menarik:
+Tambahkan CSS agar tampilan lebih menarik:
 ```css
-.hero {
-  text-align: center;
-  padding: 50px;
-  background-color: #fff;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  color: #333;
-}
-
-.social-icons {
+main .content {
   display: flex;
-  justify-content: center;
-  gap: 15px;
+  align-items: center;
+}
+
+main .content .content-description .title {
+  font-size: 2.5rem;
+}
+
+main .content .content-description button {
+  padding: 0.8rem 2.5rem;
+  background-color: #2d3e50;
+  color: white;
+  font-size: 1rem;
+  border-radius: 999px;
 }
 ```
 
 ### 9️⃣ Menjalankan Dokumen HTML pada Browser
 - Buka file `index.html` langsung di browser.
-- Atau gunakan ekstensi **Live Server** di VS Code untuk melihat perubahan secara langsung.
+- Gunakan ekstensi **Live Server** di **VS Code** untuk melihat perubahan secara langsung.
 
 ## 🚀 Teknologi yang Digunakan
-- **HTML5** → Struktur halaman.
-- **CSS3** → Desain dan tampilan.
-- **Google Fonts** → Font Quicksand untuk tampilan teks.
+- **HTML5** → Struktur halaman web.
+- **CSS3** → Styling dan layout.
+- **Google Fonts** → Font Quicksand.
 - **Font Awesome** → Ikon sosial media.
 - **Flexbox & Grid** → Tata letak yang responsif.
 
-## 🎯 Tujuan
-Latihan ini bertujuan untuk memahami dan menerapkan teknik dasar dalam membangun **landing page** yang responsif dan menarik.
+## 🎯 Tujuan Proyek
+Latihan ini bertujuan untuk memahami konsep dasar dalam membangun **landing page** yang modern dan responsif.
 
 ---
-
-
